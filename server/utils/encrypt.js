@@ -1,6 +1,5 @@
 const crypto = require('crypto');
 const path = require('path');
-const { SecretsManagerClient, GetSecretValueCommand } = require('@aws-sdk/client-secrets-manager');
 require('dotenv').config({ path: path.resolve(__dirname, '../../.env') });
 
 function encrypt(message, publicKey) {
@@ -34,36 +33,45 @@ function decrypt(encryptedMessage, privateKey) {
   }
 }
 
-async function getKey() {
-  const secret_name = 'VED';
+// Generate RSA key pair once and reuse it
+let cachedPrivateKey = null;
+let cachedPublicKey = null;
 
-  const client = new SecretsManagerClient({
-    credentials: {
-      secretAccessKey: process.env.AWS_SECRET_ACCESS,
-      accessKeyId: process.env.AWS_ACCESS_KEY,
-    },
-    region: 'ap-south-1',
-  });
-
-  let response;
-
-  try {
-    response = await client.send(
-      new GetSecretValueCommand({
-        SecretId: secret_name,
-        VersionStage: 'AWSCURRENT',
-      })
-    );
-  } catch (error) {
-    throw error;
+function generateRSAKeys() {
+  if (cachedPrivateKey && cachedPublicKey) {
+    return { privateKey: cachedPrivateKey, publicKey: cachedPublicKey };
   }
 
-  const secret = JSON.parse(response.SecretString);
-  return secret['VED_PRIVATE_KEY'];
+  console.log('🔑 Generating RSA key pair for encryption...');
+  
+  const { privateKey, publicKey } = crypto.generateKeyPairSync('rsa', {
+    modulusLength: 2048,
+    publicKeyEncoding: {
+      type: 'spki',
+      format: 'pem'
+    },
+    privateKeyEncoding: {
+      type: 'pkcs8',
+      format: 'pem'
+    }
+  });
+
+  cachedPrivateKey = privateKey;
+  cachedPublicKey = publicKey;
+
+  console.log('✅ RSA key pair generated successfully');
+  return { privateKey, publicKey };
+}
+
+async function getKey() {
+  // Always use local RSA keys - no AWS needed
+  const { privateKey } = generateRSAKeys();
+  return privateKey;
 }
 
 module.exports = {
   getKey,
   decrypt,
   encrypt,
+  generateRSAKeys, // Export this for getting public key if needed
 };

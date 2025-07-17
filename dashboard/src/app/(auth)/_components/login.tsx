@@ -19,7 +19,8 @@ export function Login() {
       router.push('/dashboard');
     }
     if (code) {
-      fetch(`https://backend.vedanalytics.in/api/getAccessToken?code=${code}`)
+      // here backend url 
+      fetch(`http://localhost:3001/api/getAccessToken?code=${code}`)
         .then((res) => res.json())
         .then((data) => {
           const accessToken = data.token;

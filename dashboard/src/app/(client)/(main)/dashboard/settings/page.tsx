@@ -13,7 +13,7 @@ export default function BillingPage() {
 
   const handleGenerateKey = async () => {
     try {
-      const response = await axios.post('https://backend.vedanalytics.in/api/keys/getApiKey', {
+      const response = await axios.post('http://localhost:3001/api/keys/getApiKey', {
         username: userId?.user.userId,
       });
       setApiKey(response.data.api_key);

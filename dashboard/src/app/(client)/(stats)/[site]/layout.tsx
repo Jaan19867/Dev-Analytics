@@ -88,7 +88,7 @@ export default function RootLayout({
       }
     }
 
-    fetch(`https://backend.vedanalytics.in/api/${params.site}/summary?period=${timeline?.timeline}`)
+    fetch(`http://localhost:3001/api/${params.site}/summary?period=${timeline?.timeline}`)
       .then((res) => res.json())
       .then((data) => {
         const calculateAverageTime = (arr: any[]) => {

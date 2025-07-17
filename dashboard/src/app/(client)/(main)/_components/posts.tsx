@@ -52,7 +52,7 @@ function NewPost() {
     try {
       setIsLoading(true);
       const id = window.crypto.randomUUID();
-      const response = await fetch('https://backend.vedanalytics.in/api/dashboard/addWebsite', {
+      const response = await fetch('http://localhost:3001/api/dashboard/addWebsite', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -188,7 +188,7 @@ function PostCard({ createdAt, description, url, id }: PostCardProps) {
   const removeWebsite = async () => {
     try {
       setIsLoading(true);
-      const response = await fetch('https://backend.vedanalytics.in/api/dashboard/removeWebsite', {
+      const response = await fetch('http://localhost:3001/api/dashboard/removeWebsite', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
