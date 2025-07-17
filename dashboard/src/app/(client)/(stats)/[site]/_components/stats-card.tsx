@@ -62,13 +62,13 @@ export default function StatsCard({ name }: any) {
       try {
         const [pageVisitorsRes, referrersRes, browsersRes, osRes, devicesRes, countriesRes, languagesRes] =
           await Promise.all([
-            fetch(`https://backend.vedanalytics.in/api/${name}/pages?period=${period?.timeline}`),
-            fetch(`https://backend.vedanalytics.in/api/${name}/referrers?period=${period?.timeline}`),
-            fetch(`https://backend.vedanalytics.in/api/${name}/browsers?period=${period?.timeline}`),
-            fetch(`https://backend.vedanalytics.in/api/${name}/os?period=${period?.timeline}`),
-            fetch(`https://backend.vedanalytics.in/api/${name}/devices?period=${period?.timeline}`),
-            fetch(`https://backend.vedanalytics.in/api/${name}/countries?period=${period?.timeline}`),
-            fetch(`https://backend.vedanalytics.in/api/${name}/languages?period=${period?.timeline}`),
+            fetch(`http://localhost:3001/api/${name}/pages?period=${period?.timeline}`),
+            fetch(`http://localhost:3001/api/${name}/referrers?period=${period?.timeline}`),
+            fetch(`http://localhost:3001/api/${name}/browsers?period=${period?.timeline}`),
+            fetch(`http://localhost:3001/api/${name}/os?period=${period?.timeline}`),
+            fetch(`http://localhost:3001/api/${name}/devices?period=${period?.timeline}`),
+            fetch(`http://localhost:3001/api/${name}/countries?period=${period?.timeline}`),
+            fetch(`http://localhost:3001/api/${name}/languages?period=${period?.timeline}`),
           ]);
 
         const [pageVisitorsData, referrersData, browsersData, osData, devicesData, countriesData, languagesData] =

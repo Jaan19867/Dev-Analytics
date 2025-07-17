@@ -34,7 +34,7 @@ function StatDetails({ defaultValue, site }: { defaultValue: string; site: strin
 
   useEffect(() => {
     setLoading(true);
-    fetch(`https://backend.vedanalytics.in/api/${site}/${activeTab}?period=${timeline?.timeline}`)
+    fetch(`http://localhost:3001/api/${site}/${activeTab}?period=${timeline?.timeline}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error('Network response was not ok');

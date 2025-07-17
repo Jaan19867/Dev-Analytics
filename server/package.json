@@ -5,7 +5,6 @@
   "main": "server.js",
   "author": "Shubham Singh",
   "dependencies": {
-    "@aws-sdk/client-secrets-manager": "^3.637.0",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "countries-and-timezones": "^3.6.0",
@@ -16,7 +15,6 @@
     "js-encrypt": "^2.3.4",
     "mongoose": "^8.5.2",
     "node-fetch": "^3.3.2",
-    "razorpay": "^2.9.4",
     "redis": "^4.7.0",
     "ua-parser-js": "^1.0.38"
   }
