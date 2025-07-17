@@ -1,0 +1,14 @@
+---
+title: Why API Keys?
+---
+
+# Why API Keys?
+
+Well this is a good question. Since we already have `project-id` to ensure the usage of any particular user according to their usage,
+the use of an `API-KEY` inherently seems pretty "Non Sensical".
+So, why did we still decide to go with it. 
+
+
+See, we need to ensure that the person who sends data of a website is YOU. No one with your projectID should be able to tamper with your 
+data. `API_KEY` is a SHA-256 encrypted string that helps us ensure that you are the person who actually made this website. No fake user with your 
+`project-id` is tampering with your data.

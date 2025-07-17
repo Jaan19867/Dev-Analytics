@@ -1,0 +1,10 @@
+export const APP_TITLE = 'Ved Analytics';
+
+export const CLIENT_ID = 'Iv23li7c9vpR1hLdwPKE';
+
+export const PUBLIC_KEY = `-----BEGIN PUBLIC KEY-----
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC14j/8O5RbbFGefEELwFKH/09Y
+j8firY8SI0pPz0/xl3z69JAphxHTdeEmA9PaP6h6kxUnJ3NTqeC1zxKwNIYI7I2z
+V1/SfCEyAGsgC4mEvtfjXQaskyZcDMbi7NvKPVzulpQMwOHMSgMIeFja1wewb3zs
+YSj1KQlq6L54cubADQIDAQAB
+-----END PUBLIC KEY-----`;

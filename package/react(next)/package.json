@@ -1,0 +1,38 @@
+{
+  "name": "ved-analytics",
+  "version": "0.0.1",
+  "description": "Client Component for Ved Analytics",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.45",
+    "typescript": "^5.3.3",
+    "tsup": "^8.0.1"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shubhexists/ved/package/react(next)"
+  },
+  "author": "Shubham Singh<shubh622005@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "analytics",
+    "tracker",
+    "privacy",
+    "ved",
+    "ved-analytics",
+    "statistics"
+  ],
+  "readme": "Privacy compilant, easy to use client component for Ved Analytics"
+}

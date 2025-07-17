@@ -1,0 +1,53 @@
+# React
+
+1. First Step is to get your API Keys from your dashboard.
+
+![Keys](/_static/keys.png)
+
+> For security reasons, We do not store your tokens (not even encrypted !). You'll have to generate a new token if you lose this.
+> You can generate as many tokens as you want.
+
+Why API Key? Find [here](/WhyAPI).
+
+2. Download the Ved Analytics Client component from the registry.
+
+```bash
+npm i ved-analytics
+```
+
+3. Import the component in the main `index.js` file -
+
+```jsx
+import VedAnalytics from 'ved-analytics';
+
+const project = process.env.VED_PROJECT_ID;
+const apiKey = process.env.VED_API_KEY;
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <VedAnalytics project={project} apiKey={apiKey} />
+    <App />
+  </React.StrictMode>
+);
+
+reportWebVitals();
+```
+
+> NOTE - You can get your project-id from your dashboard.
+
+![ProjectID](/_static/project.png)
+
+4. It is recommended to store the API-KEY and ProjectID in a `.env` file and use it in your component.
+
+```env
+VED_PROJECT_ID=
+VED_API_KEY=
+```
+
+5. You are good to go !
+
+## Example 
+
+You can refer to the example react implementation at - 
+https://github.com/ved-analytics/ved-react-example

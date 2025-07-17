@@ -1,0 +1,25 @@
+{
+  "-- Get Started": {
+    "type": "separator",
+    "title": "Get Started"
+  },
+  "index": "Introduction",
+  "-- Description": {
+    "type": "separator",
+    "title": "Data Collection"
+  },
+  "data": "Data Collection",
+  "-- Setup": {
+    "type": "separator",
+    "title": "Setup"
+  },
+  "plain": "Plain JavaScript",
+  "react": "React",
+  "next": "Next",
+  "-- FAQS": {
+    "type": "separator",
+    "title": "FAQS"
+  },
+  "WhyAPI": "Why API Keys?",
+  "expand": "Upcoming Frameworks?"
+}

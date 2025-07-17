@@ -1,0 +1,84 @@
+# Next Js
+
+1. First Step is to get your API Keys from your dashboard.
+
+![Keys](/_static/keys.png)
+
+> For security reasons, We do not store your tokens (not even encrypted !). You'll have to generate a new token if you lose this.
+> You can generate as many tokens as you want.
+
+Why API Key? Find [here]().
+
+2.  Download the Ved Analytics Client component from the registry.
+
+```bash
+npm i ved-analytics
+```
+
+3. If your `layout.tsx` is a client component i.e. `"use client";` then you can directly use the `VedAnalytics` component inside your layout file.
+
+Import the component in the main `layout.tsx` file -
+
+```jsx
+// app/layout.js
+import { Inter } from 'next/font/google';
+import VedAnalytics from 'ved-analytics';
+
+const inter = Inter({ subsets: ['latin'] });
+
+export const metadata = {
+  title: 'Your App Title',
+  description: 'Your App Description',
+};
+
+export default function RootLayout({ children }) {
+  const projectId = 'your_project_id'; // Replace with your project ID
+  const apiKey = 'your_api_key'; // Replace with your API key
+  return (
+    <html lang="en">
+      <body className={inter.className}>
+        <VedAnalytics project={projectId} apiKey={apiKey} />
+        {children}
+      </body>
+    </html>
+  );
+}
+```
+
+4. If your `layout.tsx` is a server component, then using `VedAnalytics` directly would result in build errors as next would be unable to compile `useEffect` in server component.
+   Hence, we need to first create a Client Wrapper component and then import that inside our `layout.tsx`. This would intercept the build that next sends from the server.
+
+Create a wrapper in let's say `app/component/VedWrapper.tsx` -
+
+```tsx
+'use client';
+
+import { VedAnalytics } from 'ved-analytics';
+
+const VedWrapper: React.FC = () => {
+  return (
+    <VedAnalytics
+      project={process.env.NEXT_PUBLIC_VED_PROJECT_ID as string}
+      apiKey={process.env.NEXT_PUBLIC_VED_API_KEY as string}
+    />
+  );
+};
+
+export default VedWrapper;
+```
+
+Now import this component to your layout.tsx !
+
+5. It is recommended to store your `ProjectID` and `API_KEY` in a `.env`.
+
+```
+NEXT_PUBLIC_VED_API_KEY=
+NEXT_PUBLIC_VED_PROJECT_ID=
+```
+
+6. You should be good to go !
+
+## Example
+
+You can refer to the example Next implementation at -
+https://github.com/ved-analytics/ved-next-example

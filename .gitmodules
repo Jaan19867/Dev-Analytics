@@ -1,0 +1,6 @@
+[submodule "examples/ved-next-example"]
+	path = examples/ved-next-example
+	url = git@github.com:ved-analytics/ved-next-example.git
+[submodule "examples/ved-react-example"]
+	path = examples/ved-react-example
+	url = git@github.com:ved-analytics/ved-react-example.git

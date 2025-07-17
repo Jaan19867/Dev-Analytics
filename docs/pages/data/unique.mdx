@@ -1,0 +1,14 @@
+# Unique Visitors
+
+Counting the number of clicks is a simple process. However counting number of unique visitors can be a challenging process.
+
+The easy way out to calculate unique visitors can be to take the IP Address of the users visiting the the website and store them in the Database and just to filter out stuff.
+However, this marks the grey area for the privacy of the users visiting your website.
+
+Also, collecting such data of Users are against the policies of many geographical regions. Policies like GDPR, PECR and many other are often violated by such methods.
+
+So how are we collecting the number of Unique Visitors?
+The browser send a `if-last-modified` to the websites which we parse out to check if the user has previously visited the website or not.
+To increase the accuracy, we also use the local storage for storing the last visited time.
+
+Check Out the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-Modified-Since) to know more about the header.
